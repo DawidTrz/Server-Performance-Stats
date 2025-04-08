@@ -7,8 +7,8 @@ You are required to write a script server-stats.sh that can analyse basic server
 - [X] Total CPU usage
 - [X] Total memory usage (Free vs Used including percentage)
 - [X] Total disk usage (Free vs Used including percentage)
-- [ ] Top 5 processes by CPU usage
-- [ ] Top 5 processes by memory usage
+- [X] Top 5 processes by CPU usage
+- [X] Top 5 processes by memory usage
 
 ### Commands CLI
 1. ``` top -bn1 | grep "%CPU" | head -n 1 | awk '{print "CPU Usage:", 100-$8"%"}' ```
@@ -19,5 +19,9 @@ You are required to write a script server-stats.sh that can analyse basic server
 ``` free -m | awk '/Mem:/ {print "Usage Mem: " ($3/$2)*100 "%"}' ```
 
 3. ``` df -h --total | awk '/total/ {print "Total disk: "$2 "\nUsage disk: "$3 ", "$3*100/$2"%\nFree disk: " $4", "$4*100/$2"%"}' ```
+
+4. ps -eo pid,cmd,$cpu --sort=-%cpu | head -n 6
+
+5. ps -eo pid,cmd,$mem --sort=-%mem | head -n 6
 
 https://roadmap.sh/projects/server-stats
