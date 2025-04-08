@@ -12,6 +12,11 @@ You are required to write a script server-stats.sh that can analyse basic server
 
 ### Commands CLI
 1. ``` top -bn1 | grep "%CPU" | head -n 1 | awk '{print "CPU Usage:", 100-$8"%"}' ```
+2. ``` free -m | awk '/Mem:/ {print "Total Mem: " $2 "MB = 100%"}' ```
+
+``` free -m | awk '/Mem:/ {print "Free Mem: " ($4/$2)*100 "MB = 100%"}' ```
+
+``` free -m | awk '/Mem:/ {print "Usage Mem: " ($3/$2)*100 "%"}' ```
 
 
 https://roadmap.sh/projects/server-stats
