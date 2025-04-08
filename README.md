@@ -11,7 +11,7 @@ You are required to write a script server-stats.sh that can analyse basic server
 - [ ] Top 5 processes by memory usage
 
 ### Commands CLI
-1. ``` top -bn1 | grep "%CPU" | head -n 1 | awk '{print 100-$8"%"}' ```
+1. ``` top -bn1 | grep "%CPU" | head -n 1 | awk '{print "CPU Usage:", 100-$8"%"}' ```
 
 
 https://roadmap.sh/projects/server-stats
